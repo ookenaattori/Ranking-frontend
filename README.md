@@ -1,8 +1,11 @@
 ### Kuvaus
 
-Yksinkertainen front-end luotu itse tekemääni back-endiin. Back-end sisältää jääkiekkojoukkueita ja niitten tuloksia tietokannassa.<br />
-Data on myös saatavilla REST muodossa, josta syntyikin idea luoda tälle uudenlainen käyttöliittymä käyttäen react.js.<br />
-Projektin tarkoituksena oli siis soveltaa oppimaani ja luoda omin käsin sekä front- että back-end sovellukselle.
+Yksinkertainen front-end luotu itse tekemääni back-endiin. Back-end sisältää jääkiekkojoukkueita ja <br />
+niitten tuloksia tietokannassa. (https://seppocup-ranking.herokuapp.com/joukkueet)<br />
+Data on myös saatavilla REST muodossa, josta syntyikin idea luoda tälle uudenlainen käyttöliittymä.<br />
+Front-endissa data on aseteltu kätevästi taulukkoon.
+
+Projektin tarkoituksena oli siis soveltaa oppimaani ja luoda omin käsin sekä front- että back-end sovellukselle.<br /> Front-end on tehty käyttäen react.js.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
