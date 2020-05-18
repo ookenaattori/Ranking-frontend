@@ -1,3 +1,9 @@
+### Kuvaus
+
+Yksinkertainen front-end luotu itse tekemääni back-endiin. Back-end sisältää jääkiekkojoukkueita ja niitten tuloksia tietokannassa.<br />
+Data on myös saatavilla REST muodossa, josta syntyikin idea luoda tälle uudenlainen käyttöliittymä käyttäen react.js.<br />
+Projektin tarkoituksena oli siis soveltaa oppimaani ja luoda omin käsin sekä front- että back-end sovellukselle.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
