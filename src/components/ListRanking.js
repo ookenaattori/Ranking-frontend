@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// Material-table voi ladata npm kirjastosta, kätevä taulukko työkalu
 import MaterialTable from 'material-table';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddRanking from './AddRanking';
@@ -9,14 +10,15 @@ function ListRanking() {
 
     useEffect(() => fetchData(), []);
 
+
+    // Haetaan data json muodossa apista
     const fetchData = () => {
         fetch('https://seppocup-ranking.herokuapp.com/joukkueet')
         .then(response => response.json())
         .then(data => SetRanking(data))
-        console.log(SetRanking)
     }
 
-        // Poistaa joukkue
+        // Poista joukkue
         const deleteRanking = (row) => {
             console.log(row)
               if (window.confirm('Confirm delete rank?')) {
@@ -27,7 +29,7 @@ function ListRanking() {
               }
           }
 
-           // Tallentaa uuden joukkueen
+           // Tallenna uusi joukkue
     const saveRanking = (ranking) => {
         fetch('https://seppocup-ranking.herokuapp.com/joukkueet', {
             method: 'POST',
@@ -40,7 +42,7 @@ function ListRanking() {
         .catch(err => console.error(err))
     }
 
-
+    // Laitetaan apista haettu data riveihin, ja lisätään se myöhemmin taulukkoon
     const columns = [
         { title: 'Joukkue', field: 'nimi'},
         {title: 'Pisteet', field: 'pisteet'},
@@ -56,7 +58,7 @@ function ListRanking() {
     return (
 
         <div>
-           
+
             <MaterialTable
             title="Ranking"
             columns={columns}

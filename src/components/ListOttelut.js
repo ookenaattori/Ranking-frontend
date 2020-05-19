@@ -7,6 +7,7 @@ function ListRanking() {
 
     useEffect(() => fetchData(), []);
 
+    // Haetaan data json muodossa apista
     const fetchData = () => {
         fetch('https://seppocup-ranking.herokuapp.com/ottelutapi')
         .then(response => response.json())
@@ -15,7 +16,7 @@ function ListRanking() {
     }
 
 
-
+     // Laitetaan apista haettu data riveihin
     const columns = [
         { title: 'Koti', field: 'joukkue1'},
         {title: 'Vieras', field: 'joukkue2'},

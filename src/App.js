@@ -19,7 +19,6 @@ function App() {
         <img className="App-img" src={logo} alt='kuva' />
 
       </header>
-
       <BrowserRouter>
         <div>
           <Navigator />

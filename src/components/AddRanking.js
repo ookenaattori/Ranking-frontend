@@ -17,10 +17,11 @@ function AddRanking(props) {
 
         const [open, setOpen] = React.useState(false);
 
+        // Avaa dialog ikkunan
         const handleClickOpen = () => {
             setOpen(true);
           };
-        
+        // Sulkee dialog ikkunan
           const handleClose = () => {
             setOpen(false);
           };
@@ -29,7 +30,7 @@ function AddRanking(props) {
             setJoukkue({...joukkue, [event.target.name]: event.target.value})
 
         }
-
+        // Joukkueen tallennus tulee propsina ListRanking componentista
         const addJoukkue = () => {
             props.saveRanking(joukkue);
             handleClose();
