@@ -12,24 +12,26 @@ function ListRanking() {
 
 
     // Haetaan data json muodossa apista
+    // Api on herokussa joten kestää aina hetki ennekuin data haetaan jos sivu on käyttämätön
     const fetchData = () => {
         fetch('https://seppocup-ranking.herokuapp.com/joukkueet')
-        .then(response => response.json())
-        .then(data => SetRanking(data))
+            .then(response => response.json())
+            .then(data => SetRanking(data))
     }
 
-        // Poista joukkue
-        const deleteRanking = (row) => {
-            console.log(row)
-              if (window.confirm('Confirm delete rank?')) {
-                fetch('https://seppocup-ranking.herokuapp.com/joukkue' + (row), {method: 'DELETE'})
+    // Poista joukkue
+    const deleteRanking = (row) => {
+        console.log(row)
+        if (window.confirm('Confirm delete rank?')) {
+            fetch('https://seppocup-ranking.herokuapp.com/joukkue/' + (row), { method: 'DELETE' })
                 .then(res => fetchData())
                 .catch(err => console.error(err))
-              
-              }
-          }
 
-           // Tallenna uusi joukkue
+        }
+    }
+
+    // CRUD toiminnot eivät toimi, "Cross-orign request blocked", yritin säätää tätä back-endin puolella, mutten saanut toimimaan
+    // Tallenna uusi joukkue
     const saveRanking = (ranking) => {
         fetch('https://seppocup-ranking.herokuapp.com/joukkueet', {
             method: 'POST',
@@ -38,21 +40,23 @@ function ListRanking() {
             },
             body: JSON.stringify(ranking)
         })
-        .then(res => fetchData())
-        .catch(err => console.error(err))
+            .then(res => fetchData())
+            .catch(err => console.error(err))
     }
 
     // Laitetaan apista haettu data riveihin, ja lisätään se myöhemmin taulukkoon
     const columns = [
-        { title: 'Joukkue', field: 'nimi'},
-        {title: 'Pisteet', field: 'pisteet'},
-        {title: 'Voitot', field: 'voitot'},
-        {title: 'Tappiot', field: 'haviot'},
-        {title: 'Maalit', field: 'maalit'},
-        {title: 'Ottelut', field: 'ottelut'},
-        { sorting: false,
+        { title: 'Joukkue', field: 'nimi' },
+        { title: 'Pisteet', field: 'pisteet' },
+        { title: 'Voitot', field: 'voitot' },
+        { title: 'Tappiot', field: 'haviot' },
+        { title: 'Maalit', field: 'maalit' },
+        { title: 'Ottelut', field: 'ottelut' },
+        {
+            sorting: false,
             field: 'id',
-          render: row => <DeleteIcon cursor="pointer" onClick={() => deleteRanking(row.id)}>delete</DeleteIcon>},
+            render: row => <DeleteIcon cursor="pointer" onClick={() => deleteRanking(row.id)}>delete</DeleteIcon>
+        },
     ];
 
     return (
@@ -60,13 +64,13 @@ function ListRanking() {
         <div>
 
             <MaterialTable
-            title="Ranking"
-            columns={columns}
-            data={ranking}
+                title="Ranking"
+                columns={columns}
+                data={ranking}
             />
             <p>Lisää joukkue</p>
-          <AddRanking  saveRanking={saveRanking}/>
-          
+            <AddRanking saveRanking={saveRanking} />
+
         </div>
     );
 
