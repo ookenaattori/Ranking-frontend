@@ -1,7 +1,7 @@
 ### Kuvaus
 
 Yksinkertainen front-end luotu itse tekemääni back-endiin. Back-end sisältää jääkiekkojoukkueita ja <br />
-niitten tuloksia tietokannassa. (https://seppocup-ranking.herokuapp.com/joukkueet)<br />
+niitten tuloksia tietokannassa. Back-endin repo: https://github.com/ookenaattori/Seppocup-ranking<br />
 Data on myös saatavilla REST muodossa, josta syntyikin idea luoda tälle uudenlainen käyttöliittymä.<br />
 Front-endissa data on aseteltu kätevästi taulukkoon.
 
